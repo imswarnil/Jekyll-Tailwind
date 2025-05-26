@@ -1,17 +1,160 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: 'en-US' }}" class="{% if site.fixed_navbar %}has-navbar-fixed-top{% endif %}">
-{% include im-head.html %}
-<body class="layout-{{ page.layout | default: 'default'}} im-main-content-area">
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMWVNGD8"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    {% include im-navbar.html %}
-    <div class="content"> 
-        {{ content }} 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Awesome Jekyll Site - Home</title>
+    <!-- Link to your compiled Spectre.css (or main.scss if Jekyll processes it) -->
+    <link rel="stylesheet" href="assets/css/spectre.min.css"> <!-- Assuming you have a minified version -->
+    <!-- Or if Jekyll processes your main.scss which includes Spectre: -->
+    <!-- <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}"> -->
+    <style>
+        /* Optional: Add any custom overrides or additional styles here */
+        .hero-custom-bg {
+            background-color: #f1f1fc; /* A light variant of Spectre's primary for example */
+        }
+        .feature-icon {
+            font-size: 2rem; /* Example size for feature icons */
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar container grid-lg">
+        <section class="navbar-section">
+            <a href="/" class="navbar-brand mr-2">MySite</a>
+            <a href="#mobilenav" class="btn btn-link d-show-sm">Menu</a> <!-- Mobile menu toggle, needs JS -->
+        </section>
+        <section class="navbar-section d-hide-sm" id="desktopnav"> <!-- Hide on small screens, show by default -->
+            <a href="/" class="btn btn-link">Home</a>
+            <a href="/about/" class="btn btn-link">About</a>
+            <a href="/blog/" class="btn btn-link">Blog</a>
+            <a href="/contact/" class="btn btn-link">Contact</a>
+        </section>
+    </header>
+    <!-- Mobile navigation (initially hidden, shown via JS or CSS target trick) -->
+    <nav class="menu menu-nav d-show-sm" id="mobilenav" style="display:none;"> <!-- Initially hide for JS toggle -->
+        <a href="/" class="menu-item">Home</a>
+        <a href="/about/" class="menu-item">About</a>
+        <a href="/blog/" class="menu-item">Blog</a>
+        <a href="/contact/" class="menu-item">Contact</a>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <div class="hero hero-lg hero-custom-bg text-center">
+        <div class="hero-body">
+            <h1>Welcome to My Awesome Site!</h1>
+            <p class="text-large">Your one-stop solution for amazing things.</p>
+            <a href="#features" class="btn btn-primary btn-lg mt-2">Learn More</a>
+        </div>
     </div>
-   {% include site-before-end.html %}
-   {% include head/sw.html %}
-   <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
+
+    <!-- Main Content Area -->
+    <main class="container grid-lg mt-2 mb-2">
+
+        <!-- Features Section -->
+        <section id="features" class="section mt-2 pt-2 pb-2">
+            <h2 class="text-center h2 mb-2">Our Features</h2>
+            <div class="columns text-center">
+                <div class="column col-4 col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="feature-icon">⚙️</div> <!-- Replace with actual icons or SVGs -->
+                            <h5 class="card-title h5">Feature One</h5>
+                            <p class="card-subtitle text-gray">Innovative solutions tailored for your needs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column col-4 col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="feature-icon">🚀</div>
+                            <h5 class="card-title h5">Feature Two</h5>
+                            <p class="card-subtitle text-gray">Fast, reliable, and ready to scale with you.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column col-4 col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="feature-icon">💡</div>
+                            <h5 class="card-title h5">Feature Three</h5>
+                            <p class="card-subtitle text-gray">Creative ideas to propel your projects forward.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Example Content Section -->
+        <section class="section mt-2 pt-2 pb-2">
+            <div class="columns">
+                <div class="column col-8 col-sm-12">
+                    <h3 class="h3">About Our Mission</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent risus leo, dictum in vehicula sit amet, feugiat tempus tellus. Duis quis rhoncus erat, vitae commodo lectus. Praesent vitae nisi eleifend, porta nibh sit amet, eleifend sapien.</p>
+                    <figure class="figure">
+                        <img class="img-responsive s-rounded" src="https://via.placeholder.com/800x400?text=Illustrative+Image" alt="Placeholder Image">
+                        <figcaption class="figure-caption text-center">An illustrative image caption.</figcaption>
+                    </figure>
+                </div>
+                <div class="column col-4 col-sm-12">
+                    <h4 class="h4">Quick Links</h4>
+                    <ul class="nav">
+                        <li class="nav-item"><a href="#">Link One</a></li>
+                        <li class="nav-item"><a href="#">Link Two</a></li>
+                        <li class="nav-item"><a href="#">Link Three</a></li>
+                        <li class="nav-item">
+                            <span class="label label-primary">New!</span>
+                            <a href="#">Important Link</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="section hero hero-sm bg-gray text-center mt-2 pt-2 pb-2">
+            <div class="hero-body">
+                <h3 class="h3">Ready to Get Started?</h3>
+                <p>Join us today and experience the difference.</p>
+                <a href="/signup/" class="btn btn-success btn-lg mt-1">Sign Up Now</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-light p-2 text-center">
+        <section class="container grid-lg">
+            <p>© <span id="year"></span> My Awesome Site. All rights reserved.</p>
+            <p>
+                <a href="/privacy-policy/" class="text-light">Privacy Policy</a> |
+                <a href="/terms-of-service/" class="text-light">Terms of Service</a>
+            </p>
+        </section>
+    </footer>
+
+    <script>
+        // Simple script for current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Basic mobile menu toggle (example - consider a more robust solution for production)
+        const menuToggle = document.querySelector('a[href="#mobilenav"]');
+        const mobileNav = document.getElementById('mobilenav');
+        if (menuToggle && mobileNav) {
+            menuToggle.addEventListener('click', function(event) {
+                event.preventDefault();
+                if (mobileNav.style.display === 'none' || mobileNav.style.display === '') {
+                    mobileNav.style.display = 'block'; // Or use a class to control visibility
+                } else {
+                    mobileNav.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
 </body>
 </html>
